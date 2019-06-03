@@ -10,9 +10,20 @@ export class LinkedList {
      * @returns the ListNode that was created, containing the given data value.
      */
     public addToHead(value: string): ListNode {
-
-        // TODO
-        return;
+        let retVal = new ListNode();
+        retVal.value = value;
+        if (this.head==null) {
+            this.head = new ListNode();
+            this.head.isHead = true;
+            this.head.value = value;
+            this.head.next = null;
+        } else {
+            let oldHead = this.head;
+            this.head = retVal;
+            this.head.next = oldHead;
+        }
+        retVal = this.head;
+        return retVal;
     }
 
     /**
